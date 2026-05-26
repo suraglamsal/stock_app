@@ -36,6 +36,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+</div>
         </header>
         <main><h2> <marquee> this is the index page</marquee></h2></main>
         <footer>
