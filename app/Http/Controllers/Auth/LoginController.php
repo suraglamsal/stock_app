@@ -50,7 +50,7 @@ class LoginController extends Controller
             }
 
             if ($user->role == 'user') {
-                return '/approval';
+                return '/product';
             }
         }
 
@@ -60,7 +60,7 @@ class LoginController extends Controller
             $user = Auth::guard('role_user')->user();
 
             if ($user->role == 's_keeper') {
-                return '/approval';
+                return '/product';
             }
         }
 

@@ -13,6 +13,15 @@
                         {{ session('success') }}
                     </div>
                     @endif
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
 
                     <div class="row justify-content-center">
@@ -96,7 +105,7 @@
 
 
                             <div class="mb-3">
-                                <label for="ueducation" class="form-label">Enter user's  highest level of Education</label>
+                                <label for="ueducation" class="form-label">Enter user's highest level of Education</label>
                                 <input
                                     type="text"
                                     name="ueducation"
@@ -106,50 +115,51 @@
                             </div>
 
                             <div class="form-group">
-                            <label for="email" class="form-label">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="form-label">{{ __('E-Mail Address') }}</label>
 
-                            <div>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password" class="form-label">{{ __('Password') }}</label>
-
-                            <div>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror mb-3" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
-
-                                </div>
                                 <div>
-                                    <input type="file" name="img" class="mb-5">
-                                    <br>
-                                    <button type="submit"> Submit </button> </div>
-                    
-                            
-                            
-                        </div>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                        </form>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="form-label">{{ __('Password') }}</label>
+
+                                <div>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror mb-3" name="password" required autocomplete="new-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div>
+                                <input type="file" name="img" class="mb-5">
+                                <br>
+                                <button type="submit"> Submit </button>
+                            </div>
+
+
+
                     </div>
 
-                    <!-- You are logged in! -->
-
+                    </form>
                 </div>
+
+                <!-- You are logged in! -->
+
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

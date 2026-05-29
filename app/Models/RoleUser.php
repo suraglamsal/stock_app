@@ -2,17 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticables;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class RoleUser extends Authenticables
+class RoleUser extends Authenticatable
 {
-    protected $table= 'role_user';
+    protected $table = 'role_user';
 
-    protected $fillable =[
+    protected $fillable = [
         'uname',
+        'uaddress',   
+        'uage',       
+        'uphone',     
+        'gender',     
+        'ueducation', 
         'email',
         'password',
-        'role'
+        'img',        
+        'role',
     ];
 
     protected $hidden = [

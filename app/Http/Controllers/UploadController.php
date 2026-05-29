@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MOdels\RoleUser;
+use App\Models\RoleUser;
 use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
 {
     public function index(Request $request)
     {
-
+        //  dd($request->all());   
         // validation
         $data = $request->validate([
 
@@ -30,7 +30,7 @@ class UploadController extends Controller
 
             'password' => 'required|string|min:8',
 
-            'img' => 'required|file|mimes:jpg,jpeg,png|max:2028'
+            'img' => 'required|file|mimes:jpg,jpeg,png|max:2048'
         ]);
 
         // image upload
@@ -59,11 +59,12 @@ class UploadController extends Controller
 
             'role' => 's_keeper'
         ]);
+        
 
         // auto login
         Auth::guard('role_user')->login($user);
 
-        return redirect('/approval')
+        return redirect()->route('home')
             ->with('success', 'Data saved successfully');
     }
 }

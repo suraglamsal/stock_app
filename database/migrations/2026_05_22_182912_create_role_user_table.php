@@ -17,7 +17,7 @@ class CreateRoleUserTable extends Migration
             $table->bigIncrements('id');
             $table->string('uname');
             $table->string('uaddress');
-            $table->string('uage');
+            $table->integer('uage');
             $table->string('uphone');
             $table->string('gender')->nullable();
             $table->string('ueducation');
